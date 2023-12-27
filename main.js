@@ -1,10 +1,13 @@
+// دریافت المنت دکمه های ماشین حساب
 let operators = document.querySelectorAll('.operator')
+// دریافت ورودی از کاربر
 let input = document.querySelector('.input')
 for(let operator of [...operators]){
   operator.addEventListener('click',(e)=>{
     input.value+=e.target.innerHTML
   })
 }
+// نوشتن لیسنر برای  پاک کردن عدد 
 document.querySelector('.clear').addEventListener('click',()=>{
   input.value=''
   localStorage.clear()
@@ -45,7 +48,8 @@ function result(e){
   }
 }
 let element = document.createElement('div')
-    let keys = Object.keys(localStorage).filter(key => key.includes('history')).reverse()
+// نمایش مقدار وارد شده کاربر در بالای اینپوت    
+  let keys = Object.keys(localStorage).filter(key => key.includes('history')).reverse()
     for (key of keys) {
       element.innerHTML += `
         <h3>${localStorage.getItem(key)}</h3>
