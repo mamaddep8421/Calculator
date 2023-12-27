@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CALCULATOR</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="display">
+      <div class="show-math">
+        
+      </div>
+      <form class="form">
+        <input type="text" class="input">
+      </form>
+    </div>
+    <div class="controls">
+      <div class="settings">
+        <div class="change-theme">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <p>
+          Switch to light theme
+        </p>
+        </div>
+        <button class="btn setting-button">I</button>
+      </div>
+      
+      <div class="button-container">
+        <div class="button-row">
+          <button class="btn bg-yellow clear">C</button>
+          <button class="btn bg-yellow-opacity operator">(</button>
+          <button class="btn bg-yellow-opacity operator">)</button>
+          <button class="btn bg-pink-opacuty operator">×</button>
+        </div>
+        <div class="button-row">
+          <button class="btn bg-yellow-opacity operator">√</button>
+          <button class="btn bg-yellow-opacity operator">%</button>
+          <button class="btn bg-yellow-opacity operator">±</button>
+          <button class="btn bg-pink-opacuty operator">÷</button>
+        </div>
+        <div class="button-row">
+          <button class="btn operator">7</button>
+          <button class="btn operator">8</button>
+          <button class="btn operator">9</button>
+          <button class="btn bg-pink-opacuty operator">-</button>
+        </div>
+        <div class="button-row">
+          <button class="btn operator">4</button>
+          <button class="btn operator">5</button>
+          <button class="btn operator">6</button>
+          <button class="btn bg-pink-opacuty operator">+</button>
+        </div>
+        <div class="buttons-layout">
+          <div class="buttons">
+            <div class="button-row">
+              <button class="btn operator">1</button>
+              <button class="btn operator">2</button>
+              <button class="btn operator">3</button>
+            </div>
+            <div class="button-row">
+              <button class="btn operator">.</button>
+              <button class="btn operator">0</button>
+              <button class="btn one-operator-delete">p</button>
+            </div>
+          </div>
+          <div class="button-result">
+            <button class="btn result bg-pink">=</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
