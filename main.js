@@ -1,13 +1,11 @@
-// دریافت المنت دکمه های ماشین حساب
+
 let operators = document.querySelectorAll('.operator')
-// دریافت ورودی از کاربر
 let input = document.querySelector('.input')
 for(let operator of [...operators]){
   operator.addEventListener('click',(e)=>{
     input.value+=e.target.innerHTML
   })
 }
-// نوشتن لیسنر برای  پاک کردن عدد 
 document.querySelector('.clear').addEventListener('click',()=>{
   input.value=''
   localStorage.clear()
@@ -34,11 +32,23 @@ function result(e){
     let storageName = `history${count}`
     localStorage.setItem(storageName, value.join(""))
     try {
-      input.value = eval(value.join(''))
+      let mathResult = eval(value.join(''))
+      if (mathResult=='Infinity') {
+        mathResult='∞'
+      }
+      input.value = mathResult
       let element = document.createElement('div')
       element.innerHTML += `
-          <h3>${value.join('')}</h3>
-          <h2>=${eval(value.join(''))}</h2>
+          <h3>${value.map(v=>{
+            if (v=="/") {
+              return "÷"
+            }
+            if (v=="*") {
+              return "×"
+            }
+            return v
+          }).join("")}</h3>
+          <h2>=${mathResult}</h2>
           `
       document.querySelector('.show-math').appendChild(element)
     } catch (e) {
@@ -48,12 +58,23 @@ function result(e){
   }
 }
 let element = document.createElement('div')
-// نمایش مقدار وارد شده کاربر در بالای اینپوت    
-  let keys = Object.keys(localStorage).filter(key => key.includes('history')).reverse()
+    let keys = Object.keys(localStorage).filter(key => key.includes('history')).reverse()
     for (key of keys) {
+      let mathResult = eval(localStorage.getItem(key))
+      if (mathResult=='Infinity') {
+        mathResult='∞'
+      }
       element.innerHTML += `
-        <h3>${localStorage.getItem(key)}</h3>
-        <h2>=${eval(localStorage.getItem(key))}</h2>
+        <h3>${localStorage.getItem(key).split('').map(v => {
+          if (v == "/") {
+            return "÷"
+          }
+          if (v == "*") {
+            return "×"
+          }
+          return v
+        }).join("")}</h3>
+        <h2>=${mathResult}</h2>
         `
         document.querySelector('.show-math').appendChild(element)
     }
