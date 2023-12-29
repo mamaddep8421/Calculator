@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box
 }
 .container{
   margin: auto;
@@ -22,7 +23,8 @@
   padding: 0 0px 10px 0px;
 }
 .show-math{
-  padding: 0px 10px
+  padding: 0px 10px;
+  overflow-y: scroll;
 }
 .show-math{
   width: 100%;
